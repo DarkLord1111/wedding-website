@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luca & Diane — Wedding Invitation</title>
+  <meta name="description" content="You are invited to celebrate the wedding of Luca & Diane on June 5, 2027 at Villa La Sorgente di Francesca, Pontassieve, Italy." />
+
+  <!-- Preload the watercolor floral background from svg_templates -->
+  <link rel="preload" href="svg_templates/Watercolor%20Floral%20Cream%20Frame.png" as="image" type="image/png" />
+
+  <!-- Google Fonts — Bodoni, Baskerville, Alex Brush matching svg_templates -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== FIXED BACKGROUND (Watercolor Floral Cream Frame) ===== -->
+  <div class="fixed-background" id="fixed-background" aria-hidden="true"></div>
+
+  <!-- ===== LANGUAGE SELECTOR ===== -->
+  <nav class="language-selector" id="lang-selector" aria-label="Language selection">
+    <button class="lang-btn active" data-lang="en" id="lang-btn-en">EN</button>
+    <button class="lang-btn" data-lang="fr" id="lang-btn-fr">FR</button>
+    <button class="lang-btn" data-lang="it" id="lang-btn-it">IT</button>
+    <button class="lang-btn" data-lang="ru" id="lang-btn-ru">RU</button>
+  </nav>
+
+  <!-- ===== PAGE NAVIGATION DOTS ===== -->
+  <div class="page-dots" id="page-dots">
+    <div class="page-dot active" data-page="0" data-label="Welcome" id="dot-0"></div>
+    <div class="page-dot" data-page="1" data-label="Details" id="dot-1"></div>
+    <div class="page-dot" data-page="2" data-label="Gallery" id="dot-2"></div>
+  </div>
+
+  <!-- ===== PAGES ===== -->
+  <main class="pages-container" id="pages-container">
+
+    <!-- PAGE 1: WELCOME / INVITATION -->
+    <!-- Floral frame comes from svg_templates watercolor asset -->
+    <section class="page page-welcome current" id="page-0">
+      <div class="welcome-content">
+        <p class="welcome-subtitle" data-i18n="subtitle"></p>
+        <h1 class="welcome-names">
+          Luca <span class="welcome-ampersand">&amp;</span><br />Diane
+        </h1>
+        <div class="gold-divider-container">
+          <img src="assets/gold-divider.svg" alt="" class="gold-divider-img" />
+        </div>
+        <p class="welcome-date" data-i18n="date"></p>
+        <p class="welcome-venue" data-i18n="venue"></p>
+        <p class="welcome-tagline" data-i18n="tagline"></p>
+      </div>
+
+      <div class="scroll-hint">
+        <span class="scroll-hint-text" data-i18n="scroll"></span>
+        <span class="scroll-hint-arrow"></span>
+      </div>
+    </section>
+
+    <!-- PAGE 2: DETAILS -->
+    <section class="page page-details below" id="page-1">
+      <div class="details-content">
+        <h2 class="details-title" data-i18n="detailsTitle"></h2>
+
+        <!-- Countdown -->
+        <div class="countdown-container" id="countdown">
+          <div class="countdown-item">
+            <span class="countdown-number" id="countdown-days">---</span>
+            <span class="countdown-label" data-i18n="days"></span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="countdown-hours">--</span>
+            <span class="countdown-label" data-i18n="hours"></span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="countdown-mins">--</span>
+            <span class="countdown-label" data-i18n="minutes"></span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="countdown-secs">--</span>
+            <span class="countdown-label" data-i18n="seconds"></span>
+          </div>
+        </div>
+
+        <div class="gold-divider-container">
+          <img src="assets/gold-divider.svg" alt="" class="gold-divider-img" loading="lazy" />
+        </div>
+
+        <!-- Detail Cards -->
+        <div class="detail-cards-grid">
+          <div class="detail-card" id="card-ceremony">
+            <span class="detail-icon"><img src="assets/icon-ceremony.svg" alt="" aria-hidden="true" /></span>
+            <h3 class="detail-card-title" data-i18n="ceremonyTitle"></h3>
+            <p class="detail-card-text" data-i18n="ceremonyText"></p>
+          </div>
+          <div class="detail-card" id="card-reception">
+            <span class="detail-icon"><img src="assets/icon-reception.svg" alt="" aria-hidden="true" /></span>
+            <h3 class="detail-card-title" data-i18n="receptionTitle"></h3>
+            <p class="detail-card-text" data-i18n="receptionText"></p>
+          </div>
+          <div class="detail-card" id="card-location" style="grid-column: span 2;">
+            <span class="detail-icon"><img src="assets/icon-location.svg" alt="" aria-hidden="true" /></span>
+            <h3 class="detail-card-title" data-i18n="locationTitle"></h3>
+            <p class="detail-card-text" data-i18n="locationText"></p>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Villa+La+Sorgente+di+Francesca+Pontassieve" target="_blank" rel="noopener noreferrer" id="map-link">
+              <img src="assets/icon-map.svg" alt="" aria-hidden="true" />
+              <span data-i18n="mapLink"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: GALLERY & EXTRAS -->
+    <section class="page page-gallery below" id="page-2">
+      <div class="gallery-content">
+        <h2 class="gallery-title" data-i18n="galleryTitle"></h2>
+
+        <!-- Photo Grid -->
+        <div class="photo-grid">
+          <div class="photo-placeholder">
+            <span class="photo-placeholder-icon"><img src="assets/icon-camera.svg" alt="" aria-hidden="true" /></span>
+            <span class="photo-placeholder-text" data-i18n="photoPlaceholder"></span>
+          </div>
+          <div class="photo-placeholder">
+            <span class="photo-placeholder-icon"><img src="assets/icon-camera.svg" alt="" aria-hidden="true" /></span>
+            <span class="photo-placeholder-text" data-i18n="photoPlaceholder"></span>
+          </div>
+          <div class="photo-placeholder">
+            <span class="photo-placeholder-icon"><img src="assets/icon-camera.svg" alt="" aria-hidden="true" /></span>
+            <span class="photo-placeholder-text" data-i18n="photoPlaceholder"></span>
+          </div>
+          <div class="photo-placeholder landscape">
+            <span class="photo-placeholder-icon"><img src="assets/icon-camera.svg" alt="" aria-hidden="true" /></span>
+            <span class="photo-placeholder-text" data-i18n="photoPlaceholder"></span>
+          </div>
+          <div class="photo-placeholder">
+            <span class="photo-placeholder-icon"><img src="assets/icon-camera.svg" alt="" aria-hidden="true" /></span>
+            <span class="photo-placeholder-text" data-i18n="photoPlaceholder"></span>
+          </div>
+        </div>
+
+        <div class="gold-divider-container">
+          <img src="assets/gold-divider.svg" alt="" class="gold-divider-img" loading="lazy" />
+        </div>
+
+        <!-- Extras -->
+        <div class="extras-section">
+          <h3 class="extras-title" data-i18n="extrasTitle"></h3>
+          <div class="extras-grid">
+            <div class="extra-card" id="card-dresscode">
+              <span class="extra-icon"><img src="assets/icon-dresscode.svg" alt="" aria-hidden="true" /></span>
+              <h4 class="extra-card-title" data-i18n="dresscodeTitle"></h4>
+              <p class="extra-card-text" data-i18n="dresscodeText"></p>
+            </div>
+            <div class="extra-card" id="card-gift">
+              <span class="extra-icon"><img src="assets/icon-gift.svg" alt="" aria-hidden="true" /></span>
+              <h4 class="extra-card-title" data-i18n="giftTitle"></h4>
+              <p class="extra-card-text" data-i18n="giftText"></p>
+            </div>
+            <div class="extra-card" id="card-accommodation">
+              <span class="extra-icon"><img src="assets/icon-hotel.svg" alt="" aria-hidden="true" /></span>
+              <h4 class="extra-card-title" data-i18n="accommodationTitle"></h4>
+              <p class="extra-card-text" data-i18n="accommodationText"></p>
+            </div>
+            <div class="extra-card" id="card-rsvp">
+              <span class="extra-icon"><img src="assets/icon-rsvp.svg" alt="" aria-hidden="true" /></span>
+              <h4 class="extra-card-title" data-i18n="rsvpTitle"></h4>
+              <p class="extra-card-text" data-i18n="rsvpText"></p>
+            </div>
+          </div>
+        </div>
+
+        <p class="closing-message" data-i18n="closing"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
